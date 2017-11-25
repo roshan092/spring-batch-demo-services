@@ -24,7 +24,9 @@ public class NumberControllerTest {
 
     @Test
     public void shouldReturn200() throws Exception {
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/calculate")).andReturn();
+        int id = nextInt(1, 1000);
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/calculate")
+                .param("id", id + "")).andReturn();
         assertThat(mvcResult.getResponse().getStatus()).isEqualTo(200);
     }
 
