@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class NumberController {
 
     @GetMapping("/calculate")
-    public CalculationResult calculate(@RequestParam Integer id) {
+    public CalculationResult calculate(@RequestParam Integer id) throws InterruptedException {
+        Thread.sleep(200L);
         return CalculationResult.builder()
                 .id(id)
                 .value(id * 100)
